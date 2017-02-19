@@ -2,9 +2,6 @@ package com.le5n.app.service;
 
 import com.le5n.app.entities.TopicEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,17 +9,17 @@ import java.util.List;
 
 @Service
 public class TopicService {
-   private List<TopicEntity> topics = new ArrayList<>(Arrays.asList(
+    private List<TopicEntity> topics = new ArrayList<>(Arrays.asList(
             new TopicEntity(1, "name", "description"),
-                new TopicEntity(2, "name2", "description2"),
-                new TopicEntity(3, "name3", "description3")));
+            new TopicEntity(2, "name2", "description2"),
+            new TopicEntity(3, "name3", "description3")));
 
     public List<TopicEntity> getTopics() {
         return topics;
     }
 
-    public TopicEntity getTopicById (int id){
-       return topics.stream().filter(t -> t.getId() == id).findFirst().get();
+    public TopicEntity getTopicById(int id) {
+        return topics.stream().filter(t -> t.getId() == id).findFirst().get();
     }
 
     public void addTopic(TopicEntity topicEntity) {
@@ -30,11 +27,15 @@ public class TopicService {
     }
 
     public void updateTopic(int id, TopicEntity topic) {
-        for (int i = 0; i <topics.size() ; i++) {
+        for (int i = 0; i < topics.size(); i++) {
             TopicEntity t = topics.get(i);
-            if (t.getId() == id){
-                topics.set(i,topic);
+            if (t.getId() == id) {
+                topics.set(i, topic);
             }
         }
+    }
+
+    public void deleteTopicById(int id) {
+        topics.removeIf(t -> t.getId() == id);
     }
 }
