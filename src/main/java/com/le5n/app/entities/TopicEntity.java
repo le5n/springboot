@@ -1,7 +1,12 @@
 package com.le5n.app.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class TopicEntity {
+
+    @Id
     private int id;
     private String name;
     private String description;
@@ -10,6 +15,7 @@ public class TopicEntity {
     }
 
     public TopicEntity(int id, String name, String description) {
+        super();
         this.id = id;
         this.name = name;
         this.description = description;

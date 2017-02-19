@@ -1,7 +1,7 @@
 package com.le5n.app.controllers;
 
 import com.le5n.app.entities.TopicEntity;
-import com.le5n.app.service.TopicService;
+import com.le5n.app.services.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
