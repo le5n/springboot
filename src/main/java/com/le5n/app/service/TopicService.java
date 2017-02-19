@@ -25,8 +25,7 @@ public class TopicService {
        return topics.stream().filter(t -> t.getId() == id).findFirst().get();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/topics/")
-    public void addTopic(@RequestBody TopicEntity topic){
-        topics.add(topic);
+    public void addTopic(TopicEntity topicEntity) {
+        topics.add(topicEntity);
     }
 }
