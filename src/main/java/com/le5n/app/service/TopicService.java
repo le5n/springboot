@@ -28,4 +28,13 @@ public class TopicService {
     public void addTopic(TopicEntity topicEntity) {
         topics.add(topicEntity);
     }
+
+    public void updateTopic(int id, TopicEntity topic) {
+        for (int i = 0; i <topics.size() ; i++) {
+            TopicEntity t = topics.get(i);
+            if (t.getId() == id){
+                topics.set(i,topic);
+            }
+        }
+    }
 }
